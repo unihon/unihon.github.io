@@ -1,8 +1,8 @@
 ---
 layout: post
 title: jd price tracking
-date: 2018-08-19 10:48:03
-updated: 2018-08-19 10:48:03
+date: 2018-08-19 22:48:03
+updated: 2018-08-20 00:03:03
 categories:
 - pyton
 tags:
@@ -139,3 +139,7 @@ is same
 
 对于jd那个商品id，应该是比较固定的，这是长期跟踪价格的基础。  
 最后可以用crontab定期运行脚本。
+
+---
+
+文件链接：[xjd.py](https://github.com/unihon/python_uni/tree/master/xjd)
