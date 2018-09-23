@@ -29,8 +29,7 @@ tags:
 ![](/2018-09/wsl-frp-web/store.png)
 ▲ windows store 上面的linux版本
 
-以debian为例，下载、安装之后，打开uwp，linux的安装可能要点时间。  
-完成之后，根据提示完成设置。输入`sudo passwd root`设置root的密码，`su -`切换root身份。`apt update`更新apt源（这里可以更改国内的apt源，应该会快点，配置文件是`/etc/apt/sources.list`），之后便可输入`apt install apache2`安装web服务器，对于其他软件同理。
+以debian为例，安装完成之后，根据提示完成设置。输入`sudo passwd root`设置root的密码，`su -`切换root身份。`apt update`更新apt源（这里可以更改国内的apt源，应该会快点，配置文件是`/etc/apt/sources.list`），之后便可输入`apt install apache2`安装web服务器，对于其他软件同理。
 
 因为`systemctl`不能用（在github上面看了下，应该是目前还没支持），所以得用`service`管理程序服务（个人之前一直是用centos，所以这个命令是基本没怎么用，突然感觉`systemctl`好方便(/▽＼)）。  
 `service apache2 start`启动服务，对应`status`查看状态，`stop`停止服务。
