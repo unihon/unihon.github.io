@@ -54,6 +54,6 @@ ls|xargs sed -i 's/\r//g'
 ```
 
 <img id="sm" src="/2018-10/db-value-question/201810046.png">
-▲ 删除`\s`换行符后，重新导入
+▲ 删除`\r`换行符后，重新导入
 
 解决。
