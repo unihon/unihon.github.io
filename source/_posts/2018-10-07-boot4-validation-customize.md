@@ -1,18 +1,21 @@
 ---
 layout: post
-title: 结合ajax修改bootstrap4的表单验证
+title: 修改bootstrap4的表单验证，使其支持ajax提交的表单
 date: 2018-10-07 16:28:27
 updated: 2018-10-07 16:28:27
 categories:
 - web
 tags:
-- bootstrap
+- bootstrap4
+- validation
 - ajax
 ---
 
-bootstrap4表单验证的触发事件是表单的`submit`事件，如果用的ajax方式上传表单，显然是触发不了boot4的表单验证。因此对boot4的原码做些修改，使其验证支持`ajax`上传方式。
+bootstrap4表单验证的触发事件是表单的`submit`事件，如果用的ajax方式提交表单，显然是触发不了boot4的表单验证。因此对boot4的原码做些修改，使其验证支持`ajax`提交方式。
 
 [bootstrap4官网表单验证版块](https://getbootstrap.com/docs/4.0/components/forms/#validation)
+
+<!-- more -->
 
 ![](/2018-10/boot4-validation-customize/201810071.png)
 ▲ 提交之前 
