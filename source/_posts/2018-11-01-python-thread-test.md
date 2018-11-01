@@ -43,15 +43,15 @@ class myThread(threading.Thread):
                 #增加时延，提高变量单位时间内被不同线程交叉修改的概率
                 time.sleep(0.1)
             finally:
-                #释放锁
-                #lock.release()
-
                 '''
-                输出当前的线程id，和hell 线程名。目的是输出线程id与张程名是对应关系，
+                输出当前的线程id，和hell 线程名。目的是输出线程id与线程名是对应关系，
                 不过var可能会在本线程将内容输出的前被其他线程修改，
                 导致本线程最终输出的id和线程名不一致
                 '''
                 print('id:'+str(self.id)+'->'+var)
+
+                #释放锁
+                #lock.release()
 
         print('[end: '+self.name+']')
 
@@ -97,34 +97,34 @@ id:2->hello th2
 root@unihon ~/py/threadtest #
 
 ```
-可以看到，会有线程id和线程名不一致的情况。下面把脚本里的线程锁的注释取消，开户线程锁，再次执行脚本。
+可以看到，会有线程id和线程名不一致的情况。下面把脚本里的线程锁的注释取消，开启线程锁，再次执行脚本。
 
 ``` shell
 root@unihon ~/py/threadtest # ./mythread.py
 [begin: th1]
 [begin: th2]
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
-id:2->hello th2
 id:1->hello th1
 [end: th1]
 id:2->hello th2
+id:2->hello th2
+id:2->hello th2
+id:2->hello th2
+id:2->hello th2
+id:2->hello th2
+id:2->hello th2
+id:2->hello th2
+id:2->hello th2
 [end: th2]
 [exit py]
-root@unihon ~/py/threadtest #
 
 ```
-这下，所有的线程id和线程名都准确的对应上了，目的达成。
+这下，所有的线程id和线程名都准确的对应上了，目的达成。  
+注：这里整齐的线程分批输出，而不是各个线程混在一起，是因为循环太快了，在释放锁的瞬间又重新取得锁，以至于其他线程一直在等抢夺锁的机会。可以在循环开始时加个延时，减缓循环速度，就看到是各个线程混在一起输出了
