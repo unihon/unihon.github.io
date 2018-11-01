@@ -4,7 +4,7 @@ title: jd price tracking
 date: 2018-08-19 22:48:03
 updated: 2018-08-20 00:03:03
 categories:
-- pyton
+- python
 tags:
 - 爬虫
 ---
