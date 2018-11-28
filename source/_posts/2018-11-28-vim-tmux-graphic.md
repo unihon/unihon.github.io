@@ -12,6 +12,8 @@ tags:
 
 关于vim和tmux的多窗口（终端复用）中的元素关系图，相关命令就不打了。
 
+<!-- more -->
+
 ![](/2018-11/vim-tmux-graphic/201811281.png)
 ▲ vim：buffer-window-tag
 
