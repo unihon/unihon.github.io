@@ -134,11 +134,10 @@ xfs_growfs - xfs_growfs文件系统重定义大小工具。
 	1. lvextend、lvresize分配LV容量
 	2. 用resize2fs、xfs_growf调整LV数据
 - 另外再创建一个新的分区，利用该分区创建PV并扩展到对应的VG，将新的PE对LV进行扩容
-	1. 对分区格式化（与要扩容的LV的文件系统一样）
-	2. pvcreate /dev/sda2
-	3. vgextend 目标VG /dev/sda2
-	4. lvextend、lvresize分配LV容量
-	5. 用resize2fs、xfs_growf调整LV数据
+	1. pvcreate /dev/sda2
+	2. vgextend 目标VG /dev/sda2
+	3. lvextend、lvresize分配LV容量
+	4. 用resize2fs、xfs_growf调整LV数据
 - 直接将LV对应的VG上面的PV进行扩容，也就是对已经在使用的分区进行扩容（和普通分区扩容一样,局限性和也普通分区扩容一样，不推荐）
 	1. 删除原分区，接着新创建一个分区，之后不用格式化
 	2. pvresize /dev/sda2 重新分配PV大小
