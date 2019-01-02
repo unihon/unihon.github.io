@@ -17,4 +17,5 @@ date: 2018-08-17 22:22:22
 
 友链：
 
-<span>python中文网</span> [ https://www.pythont.com](https://www.pythont.com)  
+<span>Patrick Wu</span> [ https://patrickwu.space/](https://patrickwu.space/)  
+<span>python中文网</span> [ https://www.pythont.com/](https://www.pythont.com/)  
