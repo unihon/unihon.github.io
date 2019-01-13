@@ -30,11 +30,6 @@ block content
       a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
         span.valine-comment-count(data-xid=url_for(page.path))
         span= ' ' + __('Comment')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content, {list_number: theme.toc_number})
     .post-content
       != page.content
 

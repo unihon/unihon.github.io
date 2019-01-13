@@ -23,7 +23,7 @@ tags:
 
 ## wsl基本安装步骤
 
-![](/2018-09/wsl-frp-web/set.png)
+<img id="sm" src="/2018-09/wsl-frp-web/set.png">
 ▲ 开启子系统功能
 
 ![](/2018-09/wsl-frp-web/store.png)

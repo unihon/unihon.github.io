@@ -11,12 +11,12 @@ date: 2019-01-02 21:16:18
 updated: 2019-01-02 21:16:18
 ---
 
-一个方便从windows复制文件或者目录到wsl的一个shell脚本，东西虽小，不过用起来可以让wsl的使用更加的方便。
+一个方便从windows复制文件或者目录到wsl的一个shell脚本。
+
+<!-- more -->
 
 ![](/2019-01/easy-to-cp-files-from-windows-to-wsl/20190102_demo.gif)
 ▲ 效果
-
-<!-- more -->
 
 源码如下
 

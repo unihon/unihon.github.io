@@ -36,9 +36,17 @@ html(lang=config.language)
           each item in theme.widgets
             != partial('_widget/' + item + '.pug', null, {cache: !config.relative_link})
       else
-        .pure-u-1-4.hidden_mid_and_down: #sidebar
-          each item in theme.widgets
-            != partial('_widget/' + item + '.pug', null, {cache: !config.relative_link})
+        .pure-u-1-4.toc-and-sidebar
+          div(id='sidebar')
+            if(page.toc)
+              div(class='toc-switch')
+              div(id='hon-toc')
+                div(id='toc' class='toc-article')
+                  div(class='toc-title')= __('contents')
+                  != toc(page.content, {list_number: theme.toc_number})
+            div(id='blog-sidebar')
+              each item in theme.widgets
+                != partial('_widget/' + item + '.pug', null, {cache: !config.relative_link})
       .pure-u-1.pure-u-md-3-4
         != partial('_partial/footer.pug')
 

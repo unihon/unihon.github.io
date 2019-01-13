@@ -56,3 +56,6 @@ script(type='text/javascript', src=url_for(theme.js) + '/smartresize.js' + '?v='
 
 if page.asciinema == true
   script(type='text/javascript', src=url_for(theme.js) + '/asciinema-player.js' + '?v=' + theme.version)
+
+if page.toc == true
+  script(type='text/javascript', src=url_for(theme.js) + '/tocjs.js' + '?v=' + theme.version)
