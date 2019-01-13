@@ -13,22 +13,21 @@ updated: 2019-01-13 15:00:51
 
 因为management主题原有的目录功能有点“鸡肋”，所以花了点时间对其进行升级。
 
+- [效果链接](https://unihon.github.io/2018-12/knowledge-induction-of-disk-management/)
+
 <!-- more -->
 
 ![](/2019-01/update-the-function-of-toc-for-management/20190113_ori_pc.png)
 ▲ 原大屏端目录
 
 ![](/2019-01/update-the-function-of-toc-for-management/20190113_new_pc.png)
-▲ 更新后大端目录
+▲ 更新后大屏端目录
 
 <img id="sm" src="/2019-01/update-the-function-of-toc-for-management/20190113_ori_m.jpg">
 ▲ 原小屏端目录
 
 <img id="sm" src="/2019-01/update-the-function-of-toc-for-management/20190113_new_m.jpg">
 ▲ 更新后小屏端目录
-
-
-- [效果链接](https://unihon.github.io/2018-12/knowledge-induction-of-disk-management/)
 
 ---
 
