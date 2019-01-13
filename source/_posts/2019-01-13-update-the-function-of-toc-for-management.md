@@ -1,6 +1,6 @@
 ---
 layout: post
-title: update-the-function-of-toc-for-management
+title: update the function of toc for management
 categories:
   - web
 tags:
