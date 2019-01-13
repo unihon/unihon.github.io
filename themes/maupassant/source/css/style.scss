@@ -18,7 +18,6 @@
 @media (min-width: 576px) and (max-width: 767.98px) {
 	#sm{
 		width:20rem !important;
-		margin:0 !important;
 	}
 }
 
@@ -26,7 +25,6 @@
 @media (min-width: 768px) and (max-width: 991.98px) {
 	#sm{
 		width:20rem !important;
-		margin:0 !important;
 	}
 }
 
@@ -34,7 +32,6 @@
 @media (min-width: 992px) and (max-width: 1199.98px) {
 	#sm{
 		width:20rem !important;
-		margin:0 !important;
 	}
 }
 
@@ -42,7 +39,6 @@
 @media (min-width: 1200px) {
 	#sm{
 		width:20rem !important;
-		margin:0 !important;
 	}
 }
 
@@ -376,8 +372,7 @@ div {
 		}
 		img {
 			max-width: 100%;
-			padding: 0.5em 0;
-			margin: auto;
+			padding: 0.5em;
 			display: block;
 			box-shadow: 0 0 5px #ddd;
 		}
