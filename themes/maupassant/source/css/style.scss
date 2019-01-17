@@ -371,6 +371,7 @@ div {
 			position: relative;
 		}
 		img {
+			box-sizing: border-box;
 			max-width: 100%;
 			padding: 0.5em;
 			display: block;
