@@ -5,7 +5,7 @@ categories:
 - linux
 tags:
 - bootloader
-- gurb2
+- grub2
 - uefi
 asciinema: false
 toc: true

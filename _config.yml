@@ -98,6 +98,6 @@ marked:
 
 deploy: 
   type: git 
-  repo: git@github.com:unihon/unihon.github.io.git
+  repo: https://github.com/unihon/unihon.github.io.git
   branch: master
   message:

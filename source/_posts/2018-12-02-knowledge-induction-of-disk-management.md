@@ -102,12 +102,18 @@ LVM的灵活性很高，LV容量不够的时候，可以不对该LV的分区的�
 - e2fsck
 e2fsck是检查ext2、ext3、ext4等文件系统的正确性。  
 -f : 强制检查
+
 - resize2fs  
 resize2fs - ext2/ext3/ext4文件系统重定义大小工具。  
--f：强制执行调整大小操作，覆盖掉安全检查操作;  
--p：打印已完成的百分比进度条;
+resize2fs /dev/sda2 （设备点）  
+-f：强制执行调整大小操作，覆盖掉安全检查操作  
+-p：打印已完成的百分比进度条
+
 - xfs_growfs  
 xfs_growfs - xfs_growfs文件系统重定义大小工具。  
+xfs_growfs / （文件系统挂载点）  
+如果采用LVM，也可以是LVM的设备点，如xfs_growfs /dev/vg/lv。  
+注意普通分区不能用设备点，如xfs_growfs /dev/sda2。
 
 >xfs文件系统，只能对分区进行扩容，不能缩容
 
