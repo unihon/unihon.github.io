@@ -1,0 +1,32 @@
+language: node_js
+node_js: stable
+
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+before_script:
+  - export TZ=Asia/Shanghai
+
+script:
+  - hexo g
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  name: unihon
+  email: unihon@outlook.com
+  local-dir: ./public
+  on:
+    branch: master
+
+branches:
+  only:
+    - hexo_uni
