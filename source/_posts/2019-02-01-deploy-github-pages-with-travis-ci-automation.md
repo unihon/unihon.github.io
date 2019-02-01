@@ -1,21 +1,15 @@
 ---
 layout: post
-title: use-travis
+title: deploy github pages with Travis-CI automation
 categories:
-  - cate
+  - linux
 tags:
-  - tag
+  - Tranvis-ci
+  - github-pages
+  - hexo
 asciinema: false
 date: 2019-02-01 17:44:53
 updated: 2019-02-01 17:44:53
 ---
 
-Are you ok?
-
-too..
-
-change.
-
-just.
-
-hello vscode.
+one.
