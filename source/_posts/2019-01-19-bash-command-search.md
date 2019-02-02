@@ -28,7 +28,7 @@ bash的历史命令搜索，个人常用的一个功能，其快捷键为C-R。C
 reverse-search-history C-r)
 Search backward starting at( the current line and moving up' through the history as necessary. This is an incremental search.
 forward-search-history C-s)
-Search forward starting at the current line and moving down' th(`rough the history as  necessary. This is an incremental search.
+Search forward starting at the current line and moving down' through the history as  necessary. This is an incremental search.
 
 ```
 但为什么按C-S没有得到想要的增量搜索的功能，而是给“冻屏”了。其实我也看了一些网上的bash快捷键归纳，多数上是只说了C-R这一个增量反向搜索的快捷键，有的也提到了C-S，不过也没提到“冻屏”相关的信息。
