@@ -10,6 +10,9 @@ block title
 block content
   if page.category || page.tag
       h1.label-title=  __('reading_label', page.category || page.tag)
+  else
+      .posts-info
+      h1.label-title= 'Total number of articles: ' + _.size(site.posts)
   .post
     .post-archive
         //Use lodash to classify posts. See https://lodash.com/docs#groupBy
