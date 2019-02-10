@@ -1,6 +1,6 @@
 ---
 layout: post
-title: record-the-experience-of-converting-image-formats
+title: record the experience of converting image formats
 categories:
   - python
 tags:

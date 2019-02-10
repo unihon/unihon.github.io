@@ -1,5 +1,5 @@
 # unihon.github.io
 
-![build state](https://travis-ci.org/unihon/unihon.github.io.svg?branch=hexo_uni)
+[![Build Status](https://www.travis-ci.org/unihon/unihon.github.io.svg?branch=hexo_uni)](https://www.travis-ci.org/unihon/unihon.github.io)
 
 unihon's blog
