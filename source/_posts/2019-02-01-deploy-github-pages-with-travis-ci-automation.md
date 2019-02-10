@@ -42,7 +42,7 @@ git push origin hexo_uni
 
 ## Travis-CI
 
-> Travis-CI只支持github
+> Travis-CI目前只支持github
 
 - [Travis-CI org官网](https://travis-ci.org/)
 - [Travis-CI 文档的说明](https://docs.travis-ci.com/user/for-beginners/)
