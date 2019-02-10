@@ -59,7 +59,7 @@ img.save('new.jpg', 'jpeg')
 这样利用rawkit就可以读取CR2格式图片，不过rawkit主要功能是对RAW文件数据的调整，并没有提供格式转换的功能。
 不过前面提到的PIL库中的`frombytes`模块可以将图片数据生成图片文件（官方解释：**Creates a copy of an image memory from pixel data in a buffer.**），请参阅[PIL.Image.formbytes](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.frombytes)。不过中间还需要利用`numpy`库，对读取出来的RAW文件的数据进行一些处理。
 
-这样大概流程就是这样：
+大概流程：
 
 1. 利用rawkit打开RAW文件
 2. 可以利用rawkit对RAW文件的数据对图片效果进行一些调整（可选）

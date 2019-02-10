@@ -12,8 +12,7 @@ date: 2019-01-24 15:04:19
 updated: 2019-01-24 15:04:19
 ---
 
-> 翻译  
-> 相关声名：[https://unihon.github.io/2019-01/statement-of-some-blog-articles/ ](https://unihon.github.io/2019-01/statement-of-some-blog-articles/)
+> 【翻译】相关声名：[https://unihon.github.io/2019-01/statement-of-some-blog-articles/ ](https://unihon.github.io/2019-01/statement-of-some-blog-articles/)
 
 <!-- more -->
 
