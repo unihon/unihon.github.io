@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [docker] use host networking
+title: "[docker] use host networking"
 categories:
   - docker
 tags:

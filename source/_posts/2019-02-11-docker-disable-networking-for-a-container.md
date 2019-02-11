@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [docker] disable networking for a container
+title: "[docker] disable networking for a container"
 categories:
   - docker
 tags:
