@@ -1,6 +1,6 @@
 ---
 layout: post
-title: docker use bridge networks
+title: [docker] use bridge networks
 categories:
   - docker
 tags:

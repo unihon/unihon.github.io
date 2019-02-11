@@ -1,6 +1,6 @@
 ---
 layout: post
-title: docker networking overview
+title: [docker] networking overview
 categories:
   - docker
 tags:
