@@ -12,14 +12,14 @@ date: 2019-02-10 20:23:05
 updated: 2019-02-10 20:23:05
 ---
 
-> 【翻译】相关声名：[https://unihon.github.io/2019-01/statement-of-some-blog-articles/ ](https://unihon.github.io/2019-01/statement-of-some-blog-articles/)
+> 【翻译】相关声名：<https://unihon.github.io/2019-01/statement-of-some-blog-articles/>
 
 <!-- more -->
 
 > Docker v18.09  
 > Configure networking  
 > Use overlay networks  
-> 原文链接：[https://docs.docker.com/network/overlay/](https://docs.docker.com/network/overlay/)
+> 原文链接：<https://docs.docker.com/network/overlay/>
 
 # 使用overlay网络
 

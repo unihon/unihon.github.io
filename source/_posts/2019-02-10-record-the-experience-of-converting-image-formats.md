@@ -14,6 +14,8 @@ updated: 2019-02-10 11:14:27
 
 因有一批CR2格式（RAW）的图片需要转换为jpg格式。因为电脑上没有安装相关的软件，所有就计划利用现有的“开发环境”来自己写一个格式转换的脚本进行自动的批量转换。
 
+<!-- more -->
+
 首先想到的就是python，经过一番搜索，决定先试下PIL（Python Image Library）这个图像处理库。
 PIL目前还未有python3的版本，PIL相关下载请参阅[PIL下载页面](http://pythonware.com/products/pil/)
 

@@ -89,12 +89,12 @@ marked:
   gfm: true
   pedantic: false
   sanitize: false
-  tables: true
+  tables: false
   breaks: false
   smartLists: true
   smartypants: true
   modifyAnchors: ''
-  autolink: false
+  autolink: true
 
 deploy: 
   type: git 

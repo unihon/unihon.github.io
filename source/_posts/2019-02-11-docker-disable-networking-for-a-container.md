@@ -12,14 +12,14 @@ date: 2019-02-11 21:38:04
 updated: 2019-02-11 21:38:04
 ---
 
-> 【翻译】相关声名：[https://unihon.github.io/2019-01/statement-of-some-blog-articles/ ](https://unihon.github.io/2019-01/statement-of-some-blog-articles/)
+> 【翻译】相关声名：<https://unihon.github.io/2019-01/statement-of-some-blog-articles/>
 
 <!-- more -->
 
 > Docker v18.09  
 > Configure networking  
 > Disable networking for a container  
-> 原文链接：[https://docs.docker.com/network/none/](https://docs.docker.com/network/none/)
+> 原文链接：<https://docs.docker.com/network/none/>
 
 # 禁用容器的网络连接
 
