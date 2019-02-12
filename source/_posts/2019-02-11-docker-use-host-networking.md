@@ -18,7 +18,7 @@ updated: 2019-02-11 21:37:14
 
 > Docker v18.09  
 > Configure networking  
-> Use host networking
+> Use host networking  
 > 原文链接：[https://docs.docker.com/network/host/](https://docs.docker.com/network/host/)
 
 # 使用host网络

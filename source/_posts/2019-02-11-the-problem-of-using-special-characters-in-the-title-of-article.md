@@ -26,7 +26,7 @@ updated: 2019-02-11 23:21:26
 
 加上转义字符后，报错消除了，不过在生成的title中转义字符也跟着出来了。后面接着试了下`*`之类的字符，情况和`[]`一样。
 
-为此还特地去现在博客用的Markdown解释器`marked`的github上面看下一些配置，请参阅[marked](https://github.com/markedjs/marked)。改了几个配置发现都没什么变化。后面直接给title试了几个MD的标签，证实title不经MD解释器处理~~白折腾一番。
+为此还特地去现在博客用的Markdown解释器`marked`的github上面看了一下配置，请参阅[hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)。改了几个配置发现都没什么变化。后面直接给title试了几个MD的标签，证实title不经MD解释器处理~~白折腾一番。
 
 最后是通过加title加个双引号`""`给解决了。
 
