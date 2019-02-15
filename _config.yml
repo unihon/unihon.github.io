@@ -89,7 +89,7 @@ marked:
   gfm: true
   pedantic: false
   sanitize: false
-  tables: false
+  tables: true
   breaks: false
   smartLists: true
   smartypants: true
