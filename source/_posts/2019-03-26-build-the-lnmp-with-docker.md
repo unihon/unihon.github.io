@@ -14,7 +14,7 @@ date: 2019-03-26 19:48:51
 updated: 2019-03-26 19:48:51
 ---
 
-docker推崇单镜像单个服务，所以使用[nginx](https://hub.docker.com/_/nginx)、[php](https://hub.docker.com/_/php)、[mariadb](https://hub.docker.com/_/mariadb)三个镜像搭建lnmp，为了减小体积，三个镜像统一使用alpine的版本。
+docker推崇单镜像单个服务，所以使用[nginx](https://hub.docker.com/_/nginx)、[php](https://hub.docker.com/_/php)、[mariadb](https://hub.docker.com/_/mariadb)三个镜像搭建lnmp，为了减小体积，除了mariadb，其他镜像统一使用alpine的版本。
 
 <!-- more -->
 
