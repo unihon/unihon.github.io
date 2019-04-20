@@ -2,7 +2,7 @@
 layout: post
 title: set-vim-to-automatically-recognize-dockerfile
 categories:
-  - vim
+  - tools
 tags:
   - dockerfile
   - confige
