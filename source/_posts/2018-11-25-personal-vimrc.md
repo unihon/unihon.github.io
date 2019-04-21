@@ -29,7 +29,8 @@ nmap <F10> :vert res -2<CR>
 nmap <F11> :res +2<CR>
 nmap <F12> :res -2<CR>
 
-nmap <leader>z gg=G <C-o><C-o>
+nmap <leader>z gg=G
+map <leader>j :%!python -m json.tool
 
 set tabstop=4
 set softtabstop=4
