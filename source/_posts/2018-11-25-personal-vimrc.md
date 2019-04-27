@@ -2,7 +2,7 @@
 layout: post
 title: personal-vimrc
 date: 2018-11-25 20:40:51
-updated: 2018-11-25 20:40:51
+updated:
 categories:
 - config
 tags:
