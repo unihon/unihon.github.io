@@ -194,7 +194,7 @@ term.attach(socket);
 ws 的 URL，实际是 docker engine 的 API，需要注意的是，需要将 `stream` 设置为 `true`，不然即使连接上，也是无法传递数据的。
 
 {% asset_img 2019-05-09_docker_ws_api.jpg %}
-▲ 项目包含的包（package.json）
+▲ docker websocket API
 
 接着在项目 root 目录下新建 index.html。
 
@@ -265,7 +265,7 @@ docker create 或 exec 指定的 commond 会通过 stdin （这里应该是 API 
 ## xterm.js attach 的局限
 到这里可以得出结论，xterm.js attach 到容器，最终能不能进行交互，和容器的 `ENTRYPOINT/CMD` 的命令有很大的关系。如果在创建容器时没指定 `-it` 或者 `ENTRYPOINT/CMD` 不是 `bash` 之类的可交互进程，xterm.js 虽然可以连接到容器，但都不可以与容器进行交互的。
 
-而实际情况是，绝大多数的容器事业，这两个条件都没有。
+而实际情况是，绝大多数的容器事务，这两个条件都没有。
 
 ## xterm.js 连接到容器的解决方案
 
