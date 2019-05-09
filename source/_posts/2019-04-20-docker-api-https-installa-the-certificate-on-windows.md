@@ -70,7 +70,7 @@ $ openssl pkcs12 -export -clcerts -in cert.pem -inkey key.pem -out docker_client
 在windows直接双击证书文件就可以安装。需要注意的是，CA根证书文件，需要将其安装在“受信任的根证书颁发机构”，不然可能会将证书识别为“无效证书”。客户端证书则可以按默认值安装。
 
 <img id="sm" src="/2019-04/docker-api-https-installa-the-certificate-on-windows/20190420_load_ca.jpg">
-▲ 开启子系统功能
+▲ 指定CA根证书的安装位置
 
 {% asset_img 20190420_web_ca.jpg %}
 ▲ windows安装CA根证书后访问api
