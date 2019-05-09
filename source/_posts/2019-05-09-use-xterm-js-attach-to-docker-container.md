@@ -270,3 +270,9 @@ docker create 或 exec 指定的 commond 会通过 stdin （这里应该是 API 
 ## xterm.js 连接到容器的解决方案
 
 使用 `exec`。
+
+# 参考
+
+- <https://xtermjs.org/docs/>
+- <https://docs.docker.com/engine/api/v1.39/#operation/ContainerAttachWebsocket>
+- <https://docs.docker.com/engine/reference/commandline/attach/>
