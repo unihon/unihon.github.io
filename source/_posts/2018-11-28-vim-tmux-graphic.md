@@ -2,7 +2,7 @@
 layout: post
 title: graphic of vim and tmux 
 date: 2018-11-28 10:21:57
-updated: 2018-11-28 10:21:57
+updated:
 categories:
 - tools
 tags:
@@ -10,12 +10,12 @@ tags:
 - tmux
 ---
 
-vim和tmux的多窗口（终端复用）中的元素关系图，相关命令就不打了。
+vim 和 tmux 中的元素关系图。
 
 <!-- more -->
 
-![](/2018-11/vim-tmux-graphic/201811281.png)
-▲ vim：buffer-window-tag
+{% asset_img 20190607_buffer_window_tab.jpg %}
+▲ vim：buffer-window-tab
 
-![](/2018-11/vim-tmux-graphic/201811282.png)
+{% asset_img 20190607_session_window_pane.jpg %}
 ▲ tmux：session-window-pane
