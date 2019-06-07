@@ -13,49 +13,137 @@ Personal vimrc
 
 <!-- more -->
 
-``` shell
+``` vim
 set encoding=utf8
 
-nmap <F3> :NERDTreeMirror<CR>
-nmap <F3> :NERDTreeToggle<CR>
+colorscheme elflord
+syntax enable
 
-nmap <F5> :tabfirst<CR>
-nmap <F6> :tablast<CR>
-nmap <F7> :tabp<CR>
-nmap <F8> :tabn<CR>
+set number
+set numberwidth=2
+highlight CursorLineNr ctermfg=3
 
-nmap <F9> :vert res +2<CR>
-nmap <F10> :vert res -2<CR>
-nmap <F11> :res +2<CR>
-nmap <F12> :res -2<CR>
-
-nmap <leader>z gg=G
-map <leader>j :%!python -m json.tool
+set cursorline
+set hlsearch
+set cmdheight=1
+set wildmenu
 
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
 set backspace=2
+set updatetime=100
 
-set nu
-set hls
-set cul
+" tab map key
+nmap <F5> :tabfirst<CR>
+nmap <F6> :tablast<CR>
+nmap <F7> :tabprevious<CR>
+nmap <F8> :tabnext<CR>
 
-syntax enable
-colorscheme elflord
-set cmdheight=1
+" windows size control map key
+nmap <F9> :vertical resize +2<CR>
+nmap <F10> :vertical resize -2<CR>
+nmap <F11> :resize +2<CR>
+nmap <F12> :resize -2<CR>
 
-" 插件
-" ================================================
+nmap <leader>z gg=G<C-o><C-o>
+nmap <leader>j :%!python -m json.tool
+
+" StatusLine and TabLine
+" ------------------------------------------------
+" StatusLine
+set laststatus=2
+set statusline=%f\ %#CgMf#%m%*%=%y\ %{&fileencoding!=''?'['.&fileencoding.']':''}\ %{'['.&fileformat.']'}\ %10(%l,%c%)\ =%L\ %P
+
+" TabLine
+set showtabline=2
+
+function MyTabLine()
+	let s = ''
+	for i in range(tabpagenr('$'))
+		if i + 1 == tabpagenr()
+			let s .= '%#TabLineSel#'
+		else
+			let s .= '%#TabLine#'
+		endif
+
+		let s .= ' (' . tabpagewinnr((i + 1),'$') . ')'
+		let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+	endfor
+
+	let s .= '%#TabLineFill#'
+	let s .= "%=[%{tabpagenr()}/%{tabpagenr('$')}]"
+
+	return s
+endfunction
+
+function MyTabLabel(n)
+	let buflist = tabpagebuflist(a:n)
+	let winnr = tabpagewinnr(a:n)
+	return pathshorten(bufname(buflist[winnr - 1]))
+endfunction
+
+set tabline=%!MyTabLine()
+
+" StatusLine and TabLine highlight
+if &t_Co > 8 
+	" 16 or 256 color
+	"
+	" StatusLine
+	highlight StatusLine cterm=bold ctermfg=0 ctermbg=10
+	highlight StatusLineNc cterm=NONE ctermfg=0 ctermbg=7
+	highlight CgMf cterm=bold ctermfg=0 ctermbg=11
+	" TabLine
+	highlight TabLineSel cterm=bold ctermfg=0 ctermbg=10
+	highlight TabLine cterm=NONE ctermfg=7 ctermbg=8
+	highlight TabLineFill cterm=bold ctermfg=0 ctermbg=7
+else
+	" 8 color
+	"
+	" StatusLine
+	highlight StatusLine cterm=NONE ctermfg=0 ctermbg=2
+	highlight StatusLineNc cterm=NONE ctermfg=0 ctermbg=7
+	highlight CgMf cterm=NONE ctermfg=0 ctermbg=3
+	" TabLine
+	highlight TabLineSel cterm=NONE ctermfg=0 ctermbg=2
+	highlight TabLine cterm=NONE ctermfg=0 ctermbg=7
+	highlight TabLineFill cterm=NONE ctermfg=0 ctermbg=7
+endif
+
+
+" list of plugins
+" ------------------------------------------------
 call plug#begin('~/.vim/plugged')
-" 资源树
+" basic
+"
+" 文件资源树
 Plug 'scrooloose/nerdtree'
-" 括号补全
-Plug 'jiangmiao/auto-pairs'
-" 代码注释
+" 注释
 Plug 'tpope/vim-commentary'
-call plug#end()"
-" ================================================
+" 符号成对补全
+Plug 'jiangmiao/auto-pairs'
 
+" develop
+"
+" 文件git状态
+Plug 'airblade/vim-gitgutter'
+" html快速编写
+Plug 'mattn/emmet-vim'
+" js高亮及格式化
+Plug 'pangloss/vim-javascript'
+call plug#end()
+" ------------------------------------------------
+
+" plugin options
+" ------------------------------------------------
+" scrooloose/nerdtree
+nmap <F3> :NERDTreeToggle<CR>
+
+" airblade/vim-gitgutter
+let g:gitgutter_sign_removed_first_line = '^'
+
+highlight GitGutterAdd ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
 ```
