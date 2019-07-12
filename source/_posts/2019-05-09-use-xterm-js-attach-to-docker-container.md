@@ -108,7 +108,7 @@ if __name__ == '__main__':
 
 项目的关键文件为 `app.py`、`index.html` 及已经预先“编译”好的 xterm.js 目标 js 文件 `dist/`
 
-# 使用 xterm.js attache 到 docker 容器
+# 使用 xterm.js attach 到 docker 容器
 
 这部分使用 ES6 的方式引用 xterm.js，实际尝试过直接引用预先“编译”好的 js 文件，不过并没能成功，而官网也没“传统”引用方法的示例（这部分），所以还是直接选择“避坑”吧...
 

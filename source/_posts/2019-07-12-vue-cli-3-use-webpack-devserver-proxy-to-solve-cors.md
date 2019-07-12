@@ -23,7 +23,7 @@ updated: 2019-07-12 14:31:31
 
 如果使用 Vue Cli 3.x，配置和之前的版本有些区别。其配置文件为项目 root 目录下的 `vue.config.js`，可以直接在 Vue Cli 的配置文件中对 webpack devServer 进行配置，Vue Cli 最终会将这部分配置应用到 webpack devServer。除此，原理上说，也可以直接使用 webpack 的配置文件 `webpack.config.js` 对 webpack devServer 进行配置。不过为了统一性，这里是在 Vue Cli 的配置文件进行配置。
 
-> vue-config.js
+> vue.config.js
 
 ``` JavaScript
 module.exports = {
