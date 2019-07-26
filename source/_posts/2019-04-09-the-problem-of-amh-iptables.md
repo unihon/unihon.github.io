@@ -2,10 +2,10 @@
 layout: post
 title: the-problem-of-amh-iptables
 categories:
-  - linux
+  - Linux
 tags:
   - iptables
-  - centos
+  - CentOS
   - init
 asciinema: false
 date: 2019-04-09 13:08:41

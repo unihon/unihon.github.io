@@ -2,7 +2,7 @@
 layout: post
 title: ssh-does-not-use-pubkey-for-login-verification
 categories:
-  - linux
+  - Linux
 tags:
   - ssh
   - command

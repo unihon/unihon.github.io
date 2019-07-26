@@ -2,7 +2,7 @@
 layout: post
 title: "[docker] use host networking"
 categories:
-  - docker
+  - Docker
 tags:
   - network
   - translation

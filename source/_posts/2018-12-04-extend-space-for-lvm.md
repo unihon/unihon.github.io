@@ -2,10 +2,10 @@
 layout: post
 title: Extend space for LVM on virtualbox
 categories:
-  - linux
+  - Linux
 tags:
   - lvm
-  - virtualbox
+  - VirtualBox
 asciinema: true
 date: 2018-12-04 18:40:15
 updated: 2018-12-04 18:40:15

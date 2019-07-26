@@ -4,7 +4,7 @@ title: 修改bootstrap4的表单验证，使其支持ajax提交的表单
 date: 2018-10-07 16:28:27
 updated: 2018-10-07 16:28:27
 categories:
-- web
+- Web
 tags:
 - bootstrap4
 - validation

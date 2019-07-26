@@ -2,10 +2,10 @@
 layout: post
 title: update-html-syntax-indentation-on-vim7
 categories:
-  - tools
+  - Tools
 tags:
-  - vim
-  - html
+  - Vim
+  - HTML
   - syntax
   - indent
 asciinema: false

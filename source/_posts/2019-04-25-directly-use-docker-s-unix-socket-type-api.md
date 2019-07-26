@@ -2,12 +2,12 @@
 layout: post
 title: directly-use-docker-s-unix-socket-type-api
 categories:
-  - docker
+  - Docker
 tags:
   - API
   - HTTP
   - socket
-  - python
+  - Python
 asciinema: false
 toc: true
 date: 2019-04-25 21:34:53

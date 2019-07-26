@@ -2,10 +2,10 @@
 layout: post
 title: set-vim-to-automatically-recognize-dockerfile
 categories:
-  - tools
+  - Tools
 tags:
-  - dockerfile
-  - confige
+  - Dockerfile
+  - Config
 asciinema: false
 date: 2019-04-02 22:58:09
 updated: 2019-04-02 22:58:09

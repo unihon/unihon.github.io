@@ -4,7 +4,7 @@ title: python多线程同步测试
 date: 2018-11-01 19:32:03
 updated: 2018-11-01 19:32:03
 categories:
-- python
+- Python
 tags:
 - thread
 ---

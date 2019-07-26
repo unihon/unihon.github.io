@@ -4,9 +4,9 @@ title: graphic of vim and tmux
 date: 2018-11-28 10:21:57
 updated: 2019-06-07 11:01:29
 categories:
-- tools
+- Tools
 tags:
-- vim
+- Vim
 - tmux
 ---
 

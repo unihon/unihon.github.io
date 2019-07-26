@@ -2,7 +2,7 @@
 layout: post
 title: "[docker] networking overview"
 categories:
-  - docker
+  - Docker
 tags:
   - network
   - translation

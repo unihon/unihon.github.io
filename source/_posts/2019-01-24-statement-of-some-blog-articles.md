@@ -2,7 +2,7 @@
 layout: post
 title: statement of some blog articles
 categories:
-  - mix
+  - Mix
 tags:
   - statement
   - blog

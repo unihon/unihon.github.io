@@ -2,7 +2,7 @@
 layout: post
 title: "[docker] disable networking for a container"
 categories:
-  - docker
+  - Docker
 tags:
   - network
   - translation

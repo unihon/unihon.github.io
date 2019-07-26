@@ -2,7 +2,7 @@
 layout: post
 title: boot loader grub
 categories:
-- linux
+- Linux
 tags:
 - bootloader
 - grub2

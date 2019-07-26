@@ -2,12 +2,12 @@
 layout: post
 title: use-the-tls-protect-docker-api
 categories:
-  - docker
+  - Docker
 tags:
   - TLS
-  - https
+  - HTTPS
   - API
-  - openssl
+  - OpenSSL
 asciinema: false
 toc: true
 date: 2019-04-21 19:05:39

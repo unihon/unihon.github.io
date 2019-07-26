@@ -4,10 +4,9 @@ title: 记mariadb导入csv数据错位问题
 date: 2018-10-04 18:21:32
 updated: 2018-10-04 18:21:32
 categories:
-- database
+- Database
 tags:
-- sql
-- database
+- SQL
 - csv
 ---
 

@@ -2,10 +2,10 @@
 layout: post
 title: easy to cp files from windows to wsl
 categories:
-  - linux
+  - Linux
 tags:
   - shell
-  - wsl
+  - WSL
 asciinema: false
 date: 2019-01-02 21:16:18
 updated: 2019-01-02 21:16:18

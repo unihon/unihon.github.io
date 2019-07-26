@@ -4,10 +4,9 @@ title: use wsl and frp build web server
 date: 2018-09-23 15:48:57
 updated: 2018-09-23 15:48:57
 categories:
-- linux
+- Linux
 tags:
-- linux
-- wsl
+- WSL
 - frp
 ---
 

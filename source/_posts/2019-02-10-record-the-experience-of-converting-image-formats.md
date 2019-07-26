@@ -2,7 +2,7 @@
 layout: post
 title: record the experience of converting image formats
 categories:
-  - python
+  - Python
 tags:
   - picture
   - formats

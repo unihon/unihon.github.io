@@ -2,9 +2,9 @@
 layout: post
 title: the problem of bootloader with uefi on virtualbox6
 categories:
-  - linux
+  - Linux
 tags:
-  - virtualbox
+  - VirtualBox
   - uefi
   - bootloader
   - grub2

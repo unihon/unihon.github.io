@@ -2,10 +2,10 @@
 layout: post
 title: docker-api-https-installa-the-certificate-on-windows
 categories:
-  - docker
+  - Docker
 tags:
   - TLS
-  - https
+  - HTTPS
   - certificate
   - CA
 asciinema: false

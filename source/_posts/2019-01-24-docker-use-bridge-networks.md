@@ -2,7 +2,7 @@
 layout: post
 title: "[docker] use bridge networks"
 categories:
-  - docker
+  - Docker
 tags:
   - network
   - translation

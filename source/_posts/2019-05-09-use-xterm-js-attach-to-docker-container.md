@@ -2,7 +2,7 @@
 layout: post
 title: use-xterm-js-attach-to-docker-container
 categories:
-  - docker
+  - Docker
 tags:
   - xterm.js
   - API

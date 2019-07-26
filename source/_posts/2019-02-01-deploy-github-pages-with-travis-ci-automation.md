@@ -2,11 +2,11 @@
 layout: post
 title: deploy github pages with Travis-CI automation
 categories:
-  - development
+  - Development
 tags:
   - Tranvis-CI
   - github-pages
-  - hexo
+  - Hexo
 asciinema: false
 toc: true
 date: 2019-02-01 17:44:53

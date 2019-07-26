@@ -2,7 +2,7 @@
 layout: post
 title: bash command search
 categories:
-  - linux
+  - Linux
 tags:
   - bash
   - stty

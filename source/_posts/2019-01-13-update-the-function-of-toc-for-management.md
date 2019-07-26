@@ -2,9 +2,9 @@
 layout: post
 title: update the function of toc for management
 categories:
-  - web
+  - Web
 tags:
-  - hexo
+  - Hexo
   - blog
 asciinema: false
 date: 2019-01-13 15:00:51

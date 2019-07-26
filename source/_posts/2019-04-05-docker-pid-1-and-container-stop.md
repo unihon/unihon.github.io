@@ -2,7 +2,7 @@
 layout: post
 title: docker-pid-1-and-container-stop
 categories:
-  - docker
+  - Docker
 tags:
   - PID-1
   - process

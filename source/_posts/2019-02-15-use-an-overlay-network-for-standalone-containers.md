@@ -2,7 +2,7 @@
 layout: post
 title: use an overlay network for standalone containers
 categories:
-  - docker
+  - Docker
 tags:
   - network
   - communicate

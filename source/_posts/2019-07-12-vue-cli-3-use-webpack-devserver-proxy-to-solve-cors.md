@@ -2,7 +2,7 @@
 layout: post
 title: vue-cli-3-use-webpack-devserver-proxy-to-solve-cors
 categories:
-  - web
+  - Web
 tags:
   - Vue
   - webpack

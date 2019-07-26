@@ -2,10 +2,10 @@
 layout: post
 title: add asciinema player to the hexo(maupassant theme) 
 categories:
-- web
+- Web
 tags:
 - asciinema
-- hexo
+- Hexo
 asciinema: true
 date: 2018-12-02 20:24:41
 updated: 2018-12-02 20:24:41
@@ -47,10 +47,10 @@ MD头如下，在asciinema为true时就启用播放器。
 layout: post
 title: add asciinema player to the hexo(maupassant theme) 
 categories:
-- web
+- Web
 tags:
 - asciinema
-- hexo
+- Hexo
 asciinema: true
 date: 2018-12-02 20:24:41
 updated: 2018-12-02 20:24:41

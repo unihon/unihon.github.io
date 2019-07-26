@@ -2,11 +2,11 @@
 layout: post
 title: the problem of using special characters in the title of the article
 categories:
-  - web
+  - Web
 tags:
   - characters
   - title
-  - hexo
+  - Hexo
 asciinema: false
 date: 2019-02-11 23:21:26
 updated: 2019-02-11 23:21:26

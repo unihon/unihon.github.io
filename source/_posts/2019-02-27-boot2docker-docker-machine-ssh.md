@@ -2,12 +2,12 @@
 layout: post
 title: boot2docker-docker-machine-ssh
 categories:
-  - docker
+  - Docker
 tags:
   - ssh
   - boot2docker
   - docker-machine
-  - virtualbox
+  - VirtualBox
 asciinema: false
 date: 2019-02-27 21:20:49
 updated: 2019-02-27 21:20:49

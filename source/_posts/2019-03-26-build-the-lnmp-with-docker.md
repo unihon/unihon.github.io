@@ -2,13 +2,13 @@
 layout: post
 title: build-the-lnmp-with-docker
 categories:
-  - docker
+  - Docker
 tags:
-  - lnmp
-  - linux
-  - nginx
-  - mariadb
-  - php
+  - LNMP
+  - Linux
+  - Nginx
+  - Mariadb
+  - PHP
 asciinema: false
 date: 2019-03-26 19:48:51
 updated: 2019-03-26 19:48:51

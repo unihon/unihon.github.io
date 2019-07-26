@@ -2,7 +2,7 @@
 layout: post
 title: Knowledge induction of hard management 
 categories:
-  - linux
+  - Linux
 tags:
   - partition
   - lvm
