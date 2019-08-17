@@ -9,7 +9,7 @@ tags:
   - Memory
 asciinema: false
 date: 2019-08-16 15:23:03
-updated: 2019-08-16 15:23:03
+updated: 2019-08-17 11:27:03
 ---
 
 限制 Docker 容器所使用的 Memory、CPU 资源。
@@ -50,12 +50,13 @@ Memory 的控制主要涉及的选项为 `memory` 和 `memory-swap`。这两个�
 
 ## CPU
 
-CPU 的控制（数量）主要涉及的选项为 `cpu-period` 和 `cpu-quota`，如果是 Docker 1.13 及以上，可以用更方便的 `cpus` 取代。
+CPU 的控制（数量）主要涉及的选项为 `cpu-period` 和 `cpu-quota`，如果是 Docker 1.13 及以上，可以用更方便的 `cpus` 取代。另外还有 `cpuset-cpus` 用于指定容器进程使用哪个 CPU，有点类似于 `taskset`。
 
-> 注意：这里的 CPU 数量，指的是逻辑 CPU 数量。
+> 注意：这里的 CPU，指的是逻辑 CPU。
 
->`cpu-period`：The length of a CPU period in microseconds.  
-`cpu-quota`： Microseconds of CPU time that the container can get in a CPU period.
+> `cpu-period`：The length of a CPU period in microseconds.  
+`cpu-quota`：Microseconds of CPU time that the container can get in a CPU period.  
+`cpus`：Number of CPUs.
 
 `cpu-period` 的默认值为 `100` 毫秒（`cpu-period` 给的是 `100000`，应该是换算为微秒了），没什么特别需求不用更改。
 
@@ -84,6 +85,15 @@ cpu-quota = 200000
 而用 `cpu-quota` 和 `cpu-period` 时，当他们的比值大于宿主机的 CPU 数量时，是不会报错的。因为 `cpu-quota` 指定的是“上限配额”，如果 `cpu-quota/cpu-period` 大于宿主机的 CPU 数量时，则是表示可以使用所有的 CPU 资源。
 
 > 注：关于 cpu-period 和 cpu-quota 更详细的信息，请看参考。
+
+> `cpuset-cpus`：CPUs in which to allow execution (0-3, 0,1).
+
+`cpuset-cpus` 的优先级要比 `cpu-quota`、`cpu-period` 和 `cpus` 高。  
+`cpuset-cpus` 为 `0-3` 表示容器进程可以运行在 0 到 3 号 CPU 上，`0,1` 表示容器进程可以运行在 0 和 1 号 CPU 上。  
+如果 `cpuset-cpus` 为 0，则表示容器进程只可以运行在 0 号 CPU 上。
+
+`cpu-quota/cpu-period` 或 `cpus` 的“有效值”永远是小于或者等于 `cpuset-cpus` 所涉及到的 CPU 数量。  
+即是说，当 `cpu-quota/cpu-period` 或 `cpus` 的值为 2 时，如果 `cpuset-cpus` 所涉及到的 CPU 数量只有一个，如 0 号 CPU。那么容器最多只能使用 0 号 CPU 100% 的资源（一个 CPU）。
 
 ## 参考
 
