@@ -54,9 +54,10 @@ CPU 的控制（数量）主要涉及的选项为 `cpu-period` 和 `cpu-quota`�
 
 > 注意：这里的 CPU，指的是逻辑 CPU。
 
+### `cpu-period`、`cpu-quota`
+
 > `cpu-period`：The length of a CPU period in microseconds.  
 `cpu-quota`：Microseconds of CPU time that the container can get in a CPU period.  
-`cpus`：Number of CPUs.
 
 `cpu-period` 的默认值为 `100` 毫秒（`cpu-period` 给的是 `100000`，应该是换算为微秒了），没什么特别需求不用更改。
 
@@ -79,12 +80,18 @@ cpu-quota = 200000
 2 CPU。
 ```
 
-### 注意
- 
-如果是使用 `cpus` 限制容器的 CPU 数量，当指定的数量大于宿主机的 CPU 数量时，会返回不能指定大于宿主机的 CPU 数量的提示。  
-而用 `cpu-quota` 和 `cpu-period` 时，当他们的比值大于宿主机的 CPU 数量时，是不会报错的。因为 `cpu-quota` 指定的是“上限配额”，如果 `cpu-quota/cpu-period` 大于宿主机的 CPU 数量时，则是表示可以使用所有的 CPU 资源。
+### `cpus`
 
-> 注：关于 cpu-period 和 cpu-quota 更详细的信息，请看参考。
+> `cpus`：Number of CPUs.
+
+虽然 `cpus` 可以很方便地达到和 `cpu-period`、`cpu-quota` 基本“一样”的效果，但是 `cpus` 并不是在内部（Docker Engine API 层）转换为 `cpu-period`、`cpu-quota`。`cpus` 选项实际上设置的是 API 里面的 `NanoCPUs`。
+
+> `NanoCPUs`：CPU quota in units of 1e-9 CPUs.
+
+1 cpus = 1000000000 NanoCPUs
+
+
+### `cpuset-cpus`
 
 > `cpuset-cpus`：CPUs in which to allow execution (0-3, 0,1).
 
@@ -95,7 +102,15 @@ cpu-quota = 200000
 `cpu-quota/cpu-period` 或 `cpus` 的“有效值”永远是小于或者等于 `cpuset-cpus` 所涉及到的 CPU 数量。  
 即是说，当 `cpu-quota/cpu-period` 或 `cpus` 的值为 2 时，如果 `cpuset-cpus` 所涉及到的 CPU 数量只有一个，如 0 号 CPU。那么容器最多只能使用 0 号 CPU 100% 的资源（一个 CPU）。
 
+### 注意
+ 
+如果是使用 `cpus` 限制容器的 CPU 数量，当指定的数量大于宿主机的 CPU 数量时，会返回不能指定大于宿主机的 CPU 数量的提示。  
+而用 `cpu-quota` 和 `cpu-period` 时，当他们的比值大于宿主机的 CPU 数量时，是不会报错的。因为 `cpu-quota` 指定的是“上限配额”，如果 `cpu-quota/cpu-period` 大于宿主机的 CPU 数量时，则是表示可以使用所有的 CPU 资源。
+
+> 注：关于 cpu-period 和 cpu-quota 更详细的信息，请看参考。
+
 ## 参考
 
 - <https://docs.docker.com/config/containers/resource_constraints/>
+- <https://docker-py.readthedocs.io/en/4.0.2/containers.html>
 - <https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt>
