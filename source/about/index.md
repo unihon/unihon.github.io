@@ -15,7 +15,6 @@ date: 2018-08-17 22:22:22
 <span class="fa fa-envelope">  E-mail: </span> <unihon@outlook.com>
 <hr>
 
-友链：
+Friends：
 
 <span>Patrick Wu</span> <https://patrickwu.space/>  
-<span>python中文网</span> <https://www.pythont.com/>
