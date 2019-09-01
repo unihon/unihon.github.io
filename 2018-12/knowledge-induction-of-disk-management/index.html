@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="unihon's blogs"><title>Knowledge induction of hard management | unihon's</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.2.2"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Knowledge induction of hard management</h1><a id="logo" href="/.">unihon's</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-id-card-o"> About</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Knowledge induction of hard management</h1><div class="post-meta">Dec 2, 2018<span> | </span><span class="category"><a href="/categories/Linux/">Linux</a></span></div><div class="post-content"><h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><ul>
+<li>MBR最多只能分4个主分区，可以用一个扩展分区代替一个主分区，扩展分区可以分出多个逻辑分区</li>
+<li>GPT全是主分区，没扩展分区说法</li>
+<li>分区要格式化（分配对应的文件系统xfs、extn）后才能使用</li>
+<li>cat /proc/partitions，查看系统支持的文件系统</li>
+<li>/etc/mtab，实时挂载文件（mount命令），只读</li>
+<li>/etc/fstab，开机挂载文件</li>
+</ul>
+<a id="more"></a>
+<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><ul>
+<li><p>lsblk</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">选项与参数：</span><br><span class="line"></span><br><span class="line">-d ：仅列出磁盘本身，并不会列出该磁盘的分区数据 </span><br><span class="line">-f ：同时列出该磁盘内的文件系统名称 </span><br><span class="line">-i ：使用 ASCII 的线段输出，不要使用复杂的编码 (再某些环境下很有用)</span><br><span class="line">-m ：同时输出该装置在 /dev 底下的权限数据 (rwx 的数据) </span><br><span class="line">-p ：列出该装置的完整文件名！而不是仅列出最后的名字而已。 </span><br><span class="line">-t ：列出该磁盘装置的详细数据，包括磁盘队列机制、预读写的数据量大小等</span><br><span class="line"></span><br><span class="line">仅列出 /dev/vda 装置内的所有数据的完整文件名</span><br><span class="line">lsblk -ip /dev/vda</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>blkid找出装置的UUID</p>
+</li>
+<li>parted列出磁盘的分区表类型与分区信息<br>parted /dev/vda print</li>
+</ul>
+<h2 id="磁盘分区工具"><a href="#磁盘分区工具" class="headerlink" title="磁盘分区工具"></a>磁盘分区工具</h2><ul>
+<li>MBR（msdos） 分区表请使用 fdisk 分区</li>
+<li>GPT 分区表请 使用 gdisk 分区</li>
+<li>parted用于GPT分区表</li>
+<li>partprobe<br>利用这个可以不重启就可以更新Linux核心的分区表信息，<code>partprobe -s</code>输出信息</li>
+</ul>
+<h2 id="mkfs-tag：格式化分区"><a href="#mkfs-tag：格式化分区" class="headerlink" title="mkfs.tag：格式化分区"></a>mkfs.tag：格式化分区</h2><ul>
+<li>tag为相应的文件系统，如xfs</li>
+<li>如果在删除一个已经格式化过的分区，并接着新创建一个分区，那么这个分区可能还保留着之前分区的文件系统，可以加入-f选项覆盖</li>
+</ul>
+<h2 id="创建分区基本步骤"><a href="#创建分区基本步骤" class="headerlink" title="创建分区基本步骤"></a>创建分区基本步骤</h2><ol>
+<li>透过lsblk或blkid先找到磁盘</li>
+<li>用parted /dev/xxx print或者fdisk、gdisk等工具来找出内部的分区表类型</li>
+<li>之后再用gdisk、fdisk等分区工具来操作</li>
+<li>最后用mkfs格式化分区（有时可选，如扩展分区的时候）</li>
+</ol>
+<h1 id="LVM"><a href="#LVM" class="headerlink" title="LVM"></a>LVM</h1><p>LVM是Linux环境中对磁盘分区进行管理的一种机制，是建立在硬盘和分区之上、文件系统之下的一个逻辑层，可提高磁盘分区管理的灵活性。RHEL5默认安装的分区格式就是LVM逻辑卷的格式，需要注意的是/boot分区不能基于LVM创建，必须独立出来。</p>
+<p><img src="/2018-12/knowledge-induction-of-disk-management/20181203_lvm.png" alt>
+▲ LVM组成图</p>
+<p>LVM的灵活性很高，LV容量不够的时候，可以不对该LV的分区的容量重新次分配，可以在硬盘上新增加一个分区，利用这个新分区创建PV，将新建的PV扩展到要扩展容量的LV同一个VG，这样这个VG的PE数量就增加了，最后就可以利用这些PE给LV扩展容量。整个过程对LV原有的数据是无损的。</p>
+<p><img src="/2018-12/knowledge-induction-of-disk-management/20181203_relation.png" alt>
+▲ LVM相关元素</p>
+<p><img src="/2018-12/knowledge-induction-of-disk-management/20181203_command.png" alt>
+▲ LVM相关操作命令</p>
+<h2 id="创建LVM基本步骤"><a href="#创建LVM基本步骤" class="headerlink" title="创建LVM基本步骤"></a>创建LVM基本步骤</h2><ol>
+<li>硬盘分区</li>
+<li>利用硬盘分区创建PV</li>
+<li>利用PV创建（归入）VG</li>
+<li>创建LV（来自同一个VG的PE才能生成LV）</li>
+<li>格式化LV分区</li>
+<li>MOUNT分区</li>
+</ol>
+<h1 id="重新分配分区"><a href="#重新分配分区" class="headerlink" title="重新分配分区"></a>重新分配分区</h1><p>主要有两种情况，一种是不用LVM的传统分区，另一个则是用LVM的分区。<br>主要以扩容为主，缩容为扩容的的逆过程。</p>
+<h2 id="传统分区的重分配"><a href="#传统分区的重分配" class="headerlink" title="传统分区的重分配"></a>传统分区的重分配</h2><p>传统的分区（不用LVM），对一个分区的容量重新分配往往是比较麻烦的，而且限制很多。想对一个分区在保留原数据的情况下重新分配，就得删除该分区并重新创建一个分区，新分配的分区的开始磁柱号码必须和原分区的磁柱号码一致。这就意味这只有在硬盘最后面的一个分区能够进行保留原数据的重新分配，如果是一个在中间的分区，就必定会影响到该中间分区后面的分区（如果重新分配的大小比原来大小，原理上说不会影响到后面的分区）。</p>
+<h3 id="相关命令-1"><a href="#相关命令-1" class="headerlink" title="相关命令"></a>相关命令</h3><ul>
+<li><p>e2fsck
+e2fsck是检查ext2、ext3、ext4等文件系统的正确性。<br>-f : 强制检查</p>
+</li>
+<li><p>resize2fs<br>resize2fs - ext2/ext3/ext4文件系统重定义大小工具。<br>resize2fs /dev/sda2 （设备点）<br>-f：强制执行调整大小操作，覆盖掉安全检查操作<br>-p：打印已完成的百分比进度条</p>
+</li>
+<li><p>xfs_growfs<br>xfs_growfs - xfs_growfs文件系统重定义大小工具。<br>xfs_growfs / （文件系统挂载点）<br>如果采用LVM，也可以是LVM的设备点，如xfs_growfs /dev/vg/lv。<br>注意普通分区不能用设备点，如xfs_growfs /dev/sda2。</p>
+</li>
+</ul>
+<blockquote>
+<p>xfs文件系统，只能对分区进行扩容，不能缩容</p>
+</blockquote>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li>使用分区管理工具（fdisk、gdisk等）删除要重新分配的分区  </li>
+<li>紧接着新创建一个为目标容量的分区，确保新的分区开始的磁柱号码和原分区的开始磁柱号码一样  </li>
+<li>使用partprobe更新Linux核心的分区表信息  </li>
+<li>调整后的分区不需要重新格式化  </li>
+<li>extn文件系统<br>5.1 使用e2fsck对调整后的分区进行检查<br>5.2 使用resize2fs对文件系统重定义大小  </li>
+<li>xfs文件系统<br>6.1 使用xfs_growfs对文件系统重定义大小  </li>
+</ol>
+<h2 id="LVM分区的重分配"><a href="#LVM分区的重分配" class="headerlink" title="LVM分区的重分配"></a>LVM分区的重分配</h2><p>对LVM重分配，最终目的就是改变LV容量，LV的容量由VG的PE数量决定（下面主要是扩容）</p>
+<h3 id="LVM分区重分配的几种方法"><a href="#LVM分区重分配的几种方法" class="headerlink" title="LVM分区重分配的几种方法"></a>LVM分区重分配的几种方法</h3><ul>
+<li>如果LV对应VG还有PE剩余可用，可以直接利用这部分PE对LV进行扩容<ol>
+<li>lvextend、lvresize分配LV容量</li>
+<li>用resize2fs、xfs_growf调整LV数据</li>
+</ol>
+</li>
+<li>另外再创建一个新的分区，利用该分区创建PV并扩展到对应的VG，将新的PE对LV进行扩容<ol>
+<li>pvcreate /dev/sda2</li>
+<li>vgextend 目标VG /dev/sda2</li>
+<li>lvextend、lvresize分配LV容量</li>
+<li>用resize2fs、xfs_growf调整LV数据</li>
+</ol>
+</li>
+<li>直接将LV对应的VG上面的PV进行扩容，也就是对已经在使用的分区进行扩容（和普通分区扩容一样,局限性和也普通分区扩容一样，不推荐）<ol>
+<li>删除原分区，接着新创建一个分区，之后不用格式化</li>
+<li>pvresize /dev/sda2 重新分配PV大小</li>
+<li>lvextend、lvresize分配LV容量</li>
+<li>用resize2fs、xfs_growf调整LV数据</li>
+</ol>
+</li>
+</ul>
+</div><div class="uni-update"><li class="fa fa-hourglass-half"> Update: 2019-02-02 11:10:30</li></div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>Author: </strong>unihon</li><li class="post-copyright-link"><strong>Blog Link: </strong><a href="/2018-12/knowledge-induction-of-disk-management/">https://unihon.github.io/2018-12/knowledge-induction-of-disk-management/</a></li><li class="post-copyright-license"><strong>Copyright Declaration: </strong>The author owns the copyright. Please indicate the source reproduced!</li></ul></div><br><div class="tags"><a href="/tags/partition/">partition</a><a href="/tags/lvm/">lvm</a></div><div class="post-nav"><a class="pre" href="/2018-12/extend-space-for-lvm/">Extend space for LVM on virtualbox</a><a class="next" href="/2018-12/add-asciinema-player-to-the-hexo/">add asciinema player to the hexo(maupassant theme)</a></div></div></div></div><div class="pure-u-1-4 toc-and-sidebar"><div id="sidebar"><div class="toc-switch"></div><div id="hon-toc"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础概念"><span class="toc-number">1.</span> <span class="toc-text">基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关命令"><span class="toc-number">1.1.</span> <span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘分区工具"><span class="toc-number">1.2.</span> <span class="toc-text">磁盘分区工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkfs-tag：格式化分区"><span class="toc-number">1.3.</span> <span class="toc-text">mkfs.tag：格式化分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建分区基本步骤"><span class="toc-number">1.4.</span> <span class="toc-text">创建分区基本步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LVM"><span class="toc-number">2.</span> <span class="toc-text">LVM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建LVM基本步骤"><span class="toc-number">2.1.</span> <span class="toc-text">创建LVM基本步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新分配分区"><span class="toc-number">3.</span> <span class="toc-text">重新分配分区</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#传统分区的重分配"><span class="toc-number">3.1.</span> <span class="toc-text">传统分区的重分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#相关命令-1"><span class="toc-number">3.1.1.</span> <span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤"><span class="toc-number">3.1.2.</span> <span class="toc-text">步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LVM分区的重分配"><span class="toc-number">3.2.</span> <span class="toc-text">LVM分区的重分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LVM分区重分配的几种方法"><span class="toc-number">3.2.1.</span> <span class="toc-text">LVM分区重分配的几种方法</span></a></li></ol></li></ol></li></ol></div></div><div id="blog-sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Config/">Config</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Development/">Development</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mix/">Mix</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/boot2docker/" style="font-size: 15px;">boot2docker</a> <a href="/tags/about/" style="font-size: 15px;">about</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/web-spider/" style="font-size: 15px;">web-spider</a> <a href="/tags/WSL/" style="font-size: 15px;">WSL</a> <a href="/tags/frp/" style="font-size: 15px;">frp</a> <a href="/tags/SQL/" style="font-size: 15px;">SQL</a> <a href="/tags/csv/" style="font-size: 15px;">csv</a> <a href="/tags/bootstrap4/" style="font-size: 15px;">bootstrap4</a> <a href="/tags/validation/" style="font-size: 15px;">validation</a> <a href="/tags/ajax/" style="font-size: 15px;">ajax</a> <a href="/tags/thread/" style="font-size: 15px;">thread</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/tmux/" style="font-size: 15px;">tmux</a> <a href="/tags/asciinema/" style="font-size: 15px;">asciinema</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/partition/" style="font-size: 15px;">partition</a> <a href="/tags/lvm/" style="font-size: 15px;">lvm</a> <a href="/tags/VirtualBox/" style="font-size: 15px;">VirtualBox</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/bootloader/" style="font-size: 15px;">bootloader</a> <a href="/tags/grub2/" style="font-size: 15px;">grub2</a> <a href="/tags/uefi/" style="font-size: 15px;">uefi</a> <a href="/tags/bash/" style="font-size: 15px;">bash</a> <a href="/tags/stty/" style="font-size: 15px;">stty</a> <a href="/tags/hotkey/" style="font-size: 15px;">hotkey</a> <a href="/tags/network/" style="font-size: 15px;">network</a> <a href="/tags/translation/" style="font-size: 15px;">translation</a> <a href="/tags/statement/" style="font-size: 15px;">statement</a> <a href="/tags/picture/" style="font-size: 15px;">picture</a> <a href="/tags/formats/" style="font-size: 15px;">formats</a> <a href="/tags/automation/" style="font-size: 15px;">automation</a> <a href="/tags/characters/" style="font-size: 15px;">characters</a> <a href="/tags/title/" style="font-size: 15px;">title</a> <a href="/tags/communicate/" style="font-size: 15px;">communicate</a> <a href="/tags/ssh/" style="font-size: 15px;">ssh</a> <a href="/tags/unihon/" style="font-size: 15px;">unihon</a> <a href="/tags/docker-machine/" style="font-size: 15px;">docker-machine</a> <a href="/tags/LNMP/" style="font-size: 15px;">LNMP</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/Mariadb/" style="font-size: 15px;">Mariadb</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/command/" style="font-size: 15px;">command</a> <a href="/tags/Dockerfile/" style="font-size: 15px;">Dockerfile</a> <a href="/tags/Config/" style="font-size: 15px;">Config</a> <a href="/tags/PID-1/" style="font-size: 15px;">PID-1</a> <a href="/tags/process/" style="font-size: 15px;">process</a> <a href="/tags/iptables/" style="font-size: 15px;">iptables</a> <a href="/tags/CentOS/" style="font-size: 15px;">CentOS</a> <a href="/tags/init/" style="font-size: 15px;">init</a> <a href="/tags/TLS/" style="font-size: 15px;">TLS</a> <a href="/tags/HTTPS/" style="font-size: 15px;">HTTPS</a> <a href="/tags/certificate/" style="font-size: 15px;">certificate</a> <a href="/tags/CA/" style="font-size: 15px;">CA</a> <a href="/tags/API/" style="font-size: 15px;">API</a> <a href="/tags/OpenSSL/" style="font-size: 15px;">OpenSSL</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/syntax/" style="font-size: 15px;">syntax</a> <a href="/tags/indent/" style="font-size: 15px;">indent</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/CORS/" style="font-size: 15px;">CORS</a> <a href="/tags/VSCode/" style="font-size: 15px;">VSCode</a> <a href="/tags/Resource/" style="font-size: 15px;">Resource</a> <a href="/tags/CPU/" style="font-size: 15px;">CPU</a> <a href="/tags/Memory/" style="font-size: 15px;">Memory</a> <a href="/tags/Tranvis-CI/" style="font-size: 15px;">Tranvis-CI</a> <a href="/tags/github-pages/" style="font-size: 15px;">github-pages</a> <a href="/tags/HTTP/" style="font-size: 15px;">HTTP</a> <a href="/tags/socket/" style="font-size: 15px;">socket</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/xterm-js/" style="font-size: 15px;">xterm.js</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019-08/specify-memory-and-cpu-of-the-container/">specify-memory-and-cpu-of-the-container</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-07/vs-code-remote-development/">vs-code-remote-development</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-07/vue-cli-3-use-webpack-devserver-proxy-to-solve-cors/">vue-cli-3-use-webpack-devserver-proxy-to-solve-cors</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-06/update-html-syntax-indentation-on-vim7/">update-html-syntax-indentation-on-vim7</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-05/use-xterm-js-attach-to-docker-container/">use-xterm-js-attach-to-docker-container</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-04/directly-use-docker-s-unix-socket-type-api/">directly-use-docker-s-unix-socket-type-api</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-04/use-the-tls-protect-docker-api/">use-the-tls-protect-docker-api</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-04/docker-api-https-installa-the-certificate-on-windows/">docker-api-https-installa-the-certificate-on-windows</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-04/the-problem-of-amh-iptables/">the-problem-of-amh-iptables</a></li><li class="post-list-item"><a class="post-list-link" href="/2019-04/docker-pid-1-and-container-stop/">docker-pid-1-and-container-stop</a></li></ul></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">unihon's.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.2.2" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.2.2" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.2.2"></script><script>var search_path = 'search/search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.2.2"></script><script type="text/javascript" src="/js/smartresize.js?v=0.2.2"></script><script type="text/javascript" src="/js/tocjs.js?v=0.2.2"></script></div></body></html>
