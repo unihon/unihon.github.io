@@ -64,4 +64,4 @@ docker_volume_info – Retrieve facts about Docker volumes
 # 参考
 
 - https://docs.ansible.com/ansible/latest/scenario_guides/guide_docker.html
-- https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html。
+- https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html
